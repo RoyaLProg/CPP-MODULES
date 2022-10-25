@@ -6,12 +6,12 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 14:08:09 by ccambium          #+#    #+#             */
-/*   Updated: 2022/10/25 18:22:57 by ccambium         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:48:00 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 void	megaphone(std::string argv[])
 {
