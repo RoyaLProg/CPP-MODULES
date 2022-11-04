@@ -6,13 +6,15 @@
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/17 15:10:19 by ccambium          #+#    #+#              #
-#    Updated: 2022/10/27 09:07:45 by ccambium         ###   ########.fr        #
+#    Updated: 2022/11/04 10:52:15 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXXFLAGS= -Werror -Wall -Wextra
 CXX=c++
-SRCS=phonebook.cpp
+SRCS=main.cpp\
+		contact.cpp\
+		PhoneBook.cpp
 NAME=phonebook
 OBJS=$(SRCS:.cpp=.o)
 RM=rm -f

@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:33:02 by ccambium          #+#    #+#             */
-/*   Updated: 2022/10/26 15:00:10 by ccambium         ###   ########.fr       */
+/*   Updated: 2022/11/04 17:04:48 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <bits/stdc++.h>
-#include "structures.hpp"
+#include "PhoneBook.hpp"
+
+std::string toUpper(std::string s)
+{
+    for (size_t i = 0; i < s.size(); i++)
+    	s[i] = toupper(s[i]);
+    return (s);
+}
+
+std::string	resize(std::string content)
+{
+	if (content.length() > 10)
+	{
+		content.erase(content.begin() + 9, content.end());
+		content.append(".");
+	}
+	return (content);
+}
 
 void	print_main(void)
 {
@@ -32,23 +49,23 @@ void	add_contact(PhoneBook *phonebook)
 	std::string darkest_secret;
 
 	std::cout << "Enter first name: ";
-	std::cin >> first_name;
+	std::getline(std::cin, first_name);
 	std::cout << "Enter last name: ";
-	std::cin >> last_name;
+	std::getline(std::cin, last_name);
 	std::cout << "Enter nickname: ";
-	std::cin >> nickname;
+	std::getline(std::cin, nickname);
 	std::cout << "Enter number: ";
-	std::cin >> number;
+	std::getline(std::cin, number);
 	std::cout << "Enter darkest secret: ";
-	std::cin >> darkest_secret;
+	std::getline(std::cin, darkest_secret);
 	phonebook->add_contact(first_name, last_name, nickname, number, darkest_secret);
 }
 
 bool	process_input(std::string input, PhoneBook *Phonebook)
 {
-	std::transform(input.begin(), input.end(), input.begin(),  ::toupper);
+	input = toUpper(input);
 	if (!input.compare("SEARCH"))
-		return false;
+		Phonebook->search();
 	if (!input.compare("ADD"))
 		add_contact(Phonebook);
 	if (!input.compare("EXIT"))
@@ -63,9 +80,10 @@ int	main(void)
 	while (1)
 	{
 		print_main();
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (process_input(input, &Phonebook))
 			break ;		
+		std::cout << std::endl << std::endl;
 	}
 	return (EXIT_SUCCESS);
 }
