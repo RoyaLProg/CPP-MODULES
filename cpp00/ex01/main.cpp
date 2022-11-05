@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:33:02 by ccambium          #+#    #+#             */
-/*   Updated: 2022/11/04 17:04:48 by ccambium         ###   ########.fr       */
+/*   Updated: 2022/11/05 11:52:31 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	add_contact(PhoneBook *phonebook)
 	std::string number;
 	std::string darkest_secret;
 
+	std::cout << std::endl << std::endl << std::endl << std::endl;
 	std::cout << "Enter first name: ";
 	std::getline(std::cin, first_name);
 	std::cout << "Enter last name: ";
