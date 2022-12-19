@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 19:03:58 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/19 17:08:26 by ccambium         ###   ########.fr       */
+/*   Created: 2022/12/13 18:34:01 by ccambium          #+#    #+#             */
+/*   Updated: 2022/12/19 17:06:05 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-# include "Animal.hpp"
+# include <iostream>
 
-class Cat : public Animal
+class Animal
 {
 	public:
-		Cat();
-		Cat(Cat const & src);
-		~Cat();
+		virtual ~Animal();
 
-		Cat & operator=(Cat const & rhs);
-		void makeSound() const;
+		Animal & operator=(Animal const & rhs);
+
+		virtual std::string getType() const = 0;
+		virtual void makeSound() const = 0;
+	protected:
+		std::string _type;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:13:13 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/19 16:29:36 by ccambium         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:13:21 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int main()
 
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
+
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
 
 	delete j; //should not create a leak
 	delete i;

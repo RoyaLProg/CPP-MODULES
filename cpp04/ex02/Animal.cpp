@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 19:03:58 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/19 17:08:26 by ccambium         ###   ########.fr       */
+/*   Created: 2022/12/13 18:38:29 by ccambium          #+#    #+#             */
+/*   Updated: 2022/12/19 17:05:47 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#include "Animal.hpp"
 
-# include "Animal.hpp"
-
-class Cat : public Animal
+Animal::~Animal()
 {
-	public:
-		Cat();
-		Cat(Cat const & src);
-		~Cat();
+	std::cout << "Animal destructor called" << std::endl;
+}
 
-		Cat & operator=(Cat const & rhs);
-		void makeSound() const;
-};
-
-#endif
+Animal & Animal::operator=(Animal const & rhs)
+{
+	std::cout << "Animal assignation operator called" << std::endl;
+	if (this != &rhs)
+		this->_type = rhs._type;
+	return *this;
+}

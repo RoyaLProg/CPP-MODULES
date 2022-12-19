@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 19:13:13 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/19 17:14:59 by ccambium         ###   ########.fr       */
+/*   Created: 2022/12/15 01:41:35 by ccambium          #+#    #+#             */
+/*   Updated: 2022/12/15 01:42:20 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
+#include "Brain.hpp"
 
-int main()
+Brain::Brain()
 {
-	Animal *animals[100];
-	
+	std::cout << "Brain created" << std::endl;
+}
+
+Brain::~Brain()
+{
+	std::cout << "Brain destroyed" << std::endl;
+}
+
+std::string *Brain::getIdeas()
+{
+	return (this->ideas);
+}
+
+Brain::Brain(const Brain &src)
+{
+	std::cout << "Brain created" << std::endl;
+	*this = src;
+}
+
+Brain &Brain::operator=(const Brain &rhs)
+{
 	for (int i = 0; i < 100; i++)
-	{
-		if (i % 2 == 0)
-			animals[i] = new Cat();
-		else
-			animals[i] = new Dog();
-	}
-	for (int i = 0; i < 100; i++)
-	{ 
-		std::cout << "animals[" << i << "]\t: " << animals[i]->getType() << "\t";
-		animals[i]->makeSound();
-		std::cout << std::endl;
-	}
-	for (int i = 0; i < 100; i++) { delete animals[i]; }
-	return 0;
+		this->ideas[i] = rhs.ideas[i];
+	return (*this);
 }

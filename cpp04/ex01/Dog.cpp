@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:55:31 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/13 19:33:03 by ccambium         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:07:40 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ Dog & Dog::operator=(Dog const & rhs)
 	return *this;
 }
 
-
+void	Dog::makeSound() const
+{
+	std::cout << "Woof" << std::endl;
+}
 

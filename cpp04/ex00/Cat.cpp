@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:11:17 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/15 01:55:07 by ccambium         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:09:15 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,9 @@ Cat & Cat::operator=(Cat const & rhs)
 		this->brain = rhs.brain;
 	}
 	return *this;
+}
+
+void Cat::makeSound() const
+{
+	std::cout << "Meow" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:11:17 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/19 17:08:03 by ccambium         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:23:26 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,9 @@ Cat & Cat::operator=(Cat const & rhs)
 void Cat::makeSound() const
 {
 	std::cout << "Meow" << std::endl;
+}
+
+std::string Cat::getType() const
+{
+	return this->_type;
 }

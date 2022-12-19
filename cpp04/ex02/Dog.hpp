@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 19:03:58 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/19 17:08:26 by ccambium         ###   ########.fr       */
+/*   Created: 2022/12/13 18:53:55 by ccambium          #+#    #+#             */
+/*   Updated: 2022/12/19 17:23:48 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
 
-# include "Animal.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
+#include "Animal.hpp"
 
-class Cat : public Animal
+class Dog : public Animal
 {
 	public:
-		Cat();
-		Cat(Cat const & src);
-		~Cat();
+		Dog();
+		Dog(Dog const & src);
+		~Dog();
 
-		Cat & operator=(Cat const & rhs);
+		Dog & operator=(Dog const & rhs);
 		void makeSound() const;
+		std::string getType() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:53:55 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/15 01:43:53 by ccambium         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:07:44 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Dog : public Animal
 		~Dog();
 
 		Dog & operator=(Dog const & rhs);
+		void makeSound() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:03:58 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/19 17:08:26 by ccambium         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:22:52 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Cat : public Animal
 		~Cat();
 
 		Cat & operator=(Cat const & rhs);
+		std::string getType() const;
 		void makeSound() const;
 };
 

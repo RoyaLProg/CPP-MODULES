@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 19:03:58 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/19 17:08:26 by ccambium         ###   ########.fr       */
+/*   Created: 2022/12/13 19:13:13 by ccambium          #+#    #+#             */
+/*   Updated: 2022/12/19 16:37:33 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#include "Cat.hpp"
+#include "Dog.hpp"
 
-# include "Animal.hpp"
-
-class Cat : public Animal
+int main()
 {
-	public:
-		Cat();
-		Cat(Cat const & src);
-		~Cat();
-
-		Cat & operator=(Cat const & rhs);
-		void makeSound() const;
-};
-
-#endif
+	Animal *animals[100];
+	
+	for (int i = 0; i < 100; i++)
+	{
+		if (i % 2 == 0)
+			animals[i] = new Cat();
+		else
+			animals[i] = new Dog();
+	}
+	for (int i = 0; i < 100; i++) { std::cout << i << " : " << animals[i]->getType() << std::endl; }
+	for (int i = 0; i < 100; i++) { delete animals[i]; }
+	return 0;
+}
