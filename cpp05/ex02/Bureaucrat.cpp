@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 15:41:35 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/29 08:28:00 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/01/02 15:52:54 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,14 @@ void		Bureaucrat::executeForm(AForm const & form)
 	{
 		std::cout << _name << " cannot execute " << form.getName() << " because " << e.what() << std::endl;
 	}
+}
+
+int		Bureaucrat::getGrade(void) const
+{
+	return (_grade);
+}
+
+std::string	Bureaucrat::getName(void) const
+{
+	return (_name);
 }

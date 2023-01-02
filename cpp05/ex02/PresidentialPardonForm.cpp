@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 06:52:33 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/29 08:35:30 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/01/02 15:59:04 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	PresidentialPardonForm::execute(Bureaucrat const &executor) const
 		throw AForm::FormNotSignedException();
 	if (executor.getGrade() > this->_gradeToExecute)
 		throw AForm::GradeTooLowException();
-	std::cout << this->_target << " has been pardoned by Zafod Beeblebrox." << std::endl;
+	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
