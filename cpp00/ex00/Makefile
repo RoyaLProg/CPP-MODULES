@@ -6,7 +6,7 @@
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/17 15:10:19 by ccambium          #+#    #+#              #
-#    Updated: 2022/10/25 18:21:32 by ccambium         ###   ########.fr        #
+#    Updated: 2023/01/11 12:08:10 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,3 +23,11 @@ $(NAME): $(OBJS)
 
 %.o: %.c
 	$(CXX) $(CXXFLAGS) -c $< -o $@	
+
+clean:
+	rm $(OBJS)
+
+fclean: clean
+	rm $(NAME)
+
+re: fclean all

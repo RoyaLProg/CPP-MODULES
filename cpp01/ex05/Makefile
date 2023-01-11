@@ -5,15 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/11 12:31:51 by ccambium          #+#    #+#              #
-#    Updated: 2023/01/11 12:32:12 by ccambium         ###   ########.fr        #
+#    Created: 2023/01/11 12:15:11 by ccambium          #+#    #+#              #
+#    Updated: 2023/01/11 12:15:37 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXXFLAGS= -Werror -Wall -Wextra
 CXX=c++
-SRCS=main.cpp
-NAME=Cast
+SRCS=Harl.cpp\
+	main.cpp
+NAME=Harl
 OBJS=$(SRCS:.cpp=.o)
 
 all: $(NAME)

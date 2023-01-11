@@ -5,15 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/11 12:31:51 by ccambium          #+#    #+#              #
-#    Updated: 2023/01/11 12:32:12 by ccambium         ###   ########.fr        #
+#    Created: 2023/01/11 12:23:58 by ccambium          #+#    #+#              #
+#    Updated: 2023/01/11 12:24:41 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXXFLAGS= -Werror -Wall -Wextra
 CXX=c++
-SRCS=main.cpp
-NAME=Cast
+SRCS=Animal.cpp\
+	Dog.cpp\
+	Cat.cpp\
+	Brain.cpp\
+	main.cpp
+NAME=Animal
 OBJS=$(SRCS:.cpp=.o)
 
 all: $(NAME)

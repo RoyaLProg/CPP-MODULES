@@ -5,15 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/11 12:31:51 by ccambium          #+#    #+#              #
-#    Updated: 2023/01/11 12:32:12 by ccambium         ###   ########.fr        #
+#    Created: 2023/01/11 12:06:30 by ccambium          #+#    #+#              #
+#    Updated: 2023/01/11 12:11:09 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXXFLAGS= -Werror -Wall -Wextra
 CXX=c++
-SRCS=main.cpp
-NAME=Cast
+SRCS=main.cpp\
+	newZombie.cpp\
+	randomChump.cpp\
+	Zombie.cpp
+NAME=Zombie
 OBJS=$(SRCS:.cpp=.o)
 
 all: $(NAME)
@@ -25,9 +28,9 @@ $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@	
 
 clean:
-	rm $(OBJS)
+	rm	$(OBJS)
 
 fclean: clean
-	rm $(NAME)
+	rm	$(NAME)
 
 re: fclean all
