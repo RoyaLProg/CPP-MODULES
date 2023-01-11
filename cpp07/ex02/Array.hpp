@@ -6,12 +6,14 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:16:04 by ccambium          #+#    #+#             */
-/*   Updated: 2023/01/08 16:26:44 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/01/11 12:35:44 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
+
+#include "Array.tpp"
 
 template <typename T>
 class Array

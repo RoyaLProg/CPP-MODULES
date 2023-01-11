@@ -6,11 +6,11 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:19:50 by ccambium          #+#    #+#             */
-/*   Updated: 2023/01/08 16:34:17 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/01/11 12:36:02 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.tpp"
+#include "Array.hpp"
 #include <string>
 #include <iostream>
 
