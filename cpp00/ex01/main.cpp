@@ -6,12 +6,12 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:33:02 by ccambium          #+#    #+#             */
-/*   Updated: 2022/11/05 11:52:31 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/01/18 13:55:31 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <bits/stdc++.h>
+#include <cstdlib>
 #include "PhoneBook.hpp"
 
 std::string toUpper(std::string s)
@@ -49,16 +49,31 @@ void	add_contact(PhoneBook *phonebook)
 	std::string darkest_secret;
 
 	std::cout << std::endl << std::endl << std::endl << std::endl;
-	std::cout << "Enter first name: ";
-	std::getline(std::cin, first_name);
-	std::cout << "Enter last name: ";
-	std::getline(std::cin, last_name);
-	std::cout << "Enter nickname: ";
-	std::getline(std::cin, nickname);
-	std::cout << "Enter number: ";
-	std::getline(std::cin, number);
-	std::cout << "Enter darkest secret: ";
-	std::getline(std::cin, darkest_secret);
+	while (first_name.empty())
+	{
+		std::cout << "Enter first name: ";
+		std::getline(std::cin, first_name);
+	}
+	while (last_name.empty())
+	{
+		std::cout << "Enter last name: ";
+		std::getline(std::cin, last_name);
+	}
+	while (nickname.empty())
+	{
+		std::cout << "Enter nickname: ";
+		std::getline(std::cin, nickname);
+	}
+	while (number.empty())
+	{
+		std::cout << "Enter number: ";
+		std::getline(std::cin, number);
+	}
+	while (darkest_secret.empty())
+	{
+		std::cout << "Enter darkest secret: ";
+		std::getline(std::cin, darkest_secret);
+	}
 	phonebook->add_contact(first_name, last_name, nickname, number, darkest_secret);
 }
 
@@ -86,5 +101,5 @@ int	main(void)
 			break ;		
 		std::cout << std::endl << std::endl;
 	}
-	return (EXIT_SUCCESS);
+	return (0);
 }

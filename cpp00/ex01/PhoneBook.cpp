@@ -6,12 +6,13 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 10:02:40 by ccambium          #+#    #+#             */
-/*   Updated: 2022/11/05 11:53:47 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/01/18 13:59:19 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iomanip>
+#include <cstdlib>
 
 PhoneBook::PhoneBook(void)
 {
@@ -29,17 +30,7 @@ void	PhoneBook::add_contact(std::string first_name, std::string last_name,
 		this->contact_count = 0;
 		
 }
-// void	print_contacts(void)
-// {
-// 	for (int i = 0; i < this->contact_count; i++)
-// 	{
-// 		std::cout << "First name: " << this->contacts[i].first_name << std::endl;
-// 		std::cout << "Last name: " << this->contacts[i].last_name << std::endl;
-// 		std::cout << "Nickname: " << this->contacts[i].nickname << std::endl;
-// 		std::cout << "Number: " << this->contacts[i].number << std::endl;
-// 		std::cout << "Darkest secret: " << this->contacts[i].darkest_secret << std::endl;
-// 	}
-// }
+
 void	PhoneBook::print_contact(int i)
 {
 	std::cout << "First name: " << this->contacts[i].getFirstName() << std::endl;
@@ -71,10 +62,15 @@ void	PhoneBook::search(void)
 	}
 	std::cout << "pick a contact you wish to see :";
 	std::getline(std::cin, x);
-	pick = std::stoi(x);
+	pick = atoi(x.c_str());
 	if (pick >= this->contact_count && pick >= 0)
 	{
 		std::cout << "INDEX NUMBER GREATER THAN NUMBER OF CONTACTS" << std::endl;
+		return ;
+	}
+	if (pick < 0)
+	{
+		std::cout << "NICE TRY" << std::endl;
 		return ;
 	}
 	std::cout << std::endl << std::endl << std::endl << std::endl;

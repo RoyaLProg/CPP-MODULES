@@ -6,11 +6,11 @@
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/17 15:10:19 by ccambium          #+#    #+#              #
-#    Updated: 2023/01/11 12:08:10 by ccambium         ###   ########.fr        #
+#    Updated: 2023/01/18 13:42:17 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXXFLAGS= -Werror -Wall -Wextra
+CXXFLAGS= -Werror -Wall -Wextra -std=c++98
 CXX=c++
 SRCS=megaphone.cpp
 NAME=megaphone

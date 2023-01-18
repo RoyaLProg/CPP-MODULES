@@ -5,17 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/17 15:10:19 by ccambium          #+#    #+#              #
-#    Updated: 2023/01/18 13:43:45 by ccambium         ###   ########.fr        #
+#    Created: 2022/11/30 09:22:02 by ccambium          #+#    #+#              #
+#    Updated: 2022/11/30 10:20:18 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXXFLAGS= -Werror -Wall -Wextra -std=c++98
+CXXFLAGS= -Wall -Wextra -Werror -std=c++98
 CXX=c++
-SRCS=main.cpp\
-		contact.cpp\
-		PhoneBook.cpp
-NAME=phonebook
+SRCS=tests.cpp\
+		Account.cpp
+NAME=Account
 OBJS=$(SRCS:.cpp=.o)
 RM=rm -f
 all: $(NAME)
@@ -33,3 +32,5 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: re clean fclean all $(NAME)

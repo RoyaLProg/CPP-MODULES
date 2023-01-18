@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 14:08:09 by ccambium          #+#    #+#             */
-/*   Updated: 2022/10/27 09:59:21 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/01/18 13:41:13 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ std::string	toUpper(std::string s)
 		s[i] = toupper(s[i]);
 	return (s);
 }
+
 void	megaphone(std::string argv[])
 {
 	for (size_t i = 1; !argv[i].empty(); i++)
@@ -35,7 +36,7 @@ int main(int argc, char *argv[])
 	if (argc == 1)
 	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (EXIT_SUCCESS);
+		return (0);
 	}
 	for (int i = 0; i < argc; i++)
 		s[i].assign(argv[i]);
