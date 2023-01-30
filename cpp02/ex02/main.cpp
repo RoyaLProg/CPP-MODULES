@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:00:49 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/06 17:05:34 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/01/30 03:55:17 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ int main( void ) {
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;
 	std::cout << "d is " << d << std::endl;
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << "a - b is " << a << std::endl;
+	std::cout << "c == a is " << b << std::endl;
+	std::cout << "d + a " << c << std::endl;
 	return 0;
 }

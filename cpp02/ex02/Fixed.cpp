@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:01:01 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/05 18:54:35 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/01/30 03:58:30 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,27 @@ bool	Fixed::operator==(const Fixed &nb) const { return (this->_fixedPointValue =
 
 bool	Fixed::operator!=(const Fixed &nb) const { return (this->_fixedPointValue != nb.getRawBits()); }
 
-Fixed	Fixed::operator+(const Fixed &nb) { return (this->_fixedPointValue + nb.getRawBits()); }
+Fixed	Fixed::operator+(const Fixed &nb) 
+{
+	Fixed tmp(this->_fixedPointValue + nb.getRawBits());
+	return (tmp); 
+}
 
-Fixed	Fixed::operator-(const Fixed &nb) { return (this->_fixedPointValue - nb.getRawBits()); }
+Fixed	Fixed::operator-(const Fixed &nb) 
+{
+	Fixed tmp(this->_fixedPointValue - nb.getRawBits());
+	return (tmp); 
+}
 
-Fixed	Fixed::operator*(const Fixed &nb) { return (this->_fixedPointValue * nb.getRawBits()); }
+Fixed	Fixed::operator*(const Fixed &nb) 
+{
+	Fixed tmp(this->_fixedPointValue * nb.getRawBits());
+	return (tmp); 
+}
 
-Fixed	Fixed::operator/(const Fixed &nb) { return (this->_fixedPointValue / nb.getRawBits()); }
+Fixed	Fixed::operator/(const Fixed &nb) 
+{
+	Fixed tmp(this->_fixedPointValue / nb.getRawBits());
+	return (tmp); 
+}
 
