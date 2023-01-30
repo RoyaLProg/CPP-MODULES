@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:00:26 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/05 18:52:46 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/01/30 04:15:10 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,14 @@ class	Fixed
 		Fixed(const float n);
 		~Fixed();
 		int				getRawBits(void) const;
-		void			setRawBits(int const raw);
 		int				toInt( void ) const;
+		void			setRawBits(int const raw);
 		float			toFloat( void ) const;
+		
+		Fixed			static & max(Fixed &, Fixed &);
+		Fixed			static & min(Fixed &, Fixed &);
+		Fixed			static const & max(Fixed const &, Fixed const &);
+		Fixed			static const & min(Fixed const &, Fixed const &);
 		
 		Fixed 			&operator=(const Fixed &nb);
 		Fixed			&operator++( void );
@@ -44,6 +49,7 @@ class	Fixed
 		bool			operator<=(const Fixed &nb) const;
 		bool			operator==(const Fixed &nb) const;
 		bool			operator!=(const Fixed &nb) const;
+
 	private:
 		int					_fixedPointValue;
 		static const int	_fractionalBits = 8;

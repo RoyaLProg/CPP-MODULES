@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:01:01 by ccambium          #+#    #+#             */
-/*   Updated: 2023/01/30 03:58:30 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/01/30 04:30:43 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Fixed::Fixed() { this->_fixedPointValue = 0; }
 
 Fixed::Fixed(const Fixed &src) { *this = src; }
 
-Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
+Fixed::~Fixed() { }
 
 Fixed	&Fixed::operator=(const Fixed &nb)
 {
@@ -31,6 +31,14 @@ void	Fixed::setRawBits(int const raw) { this->_fixedPointValue = raw; }
 Fixed::Fixed(const int n) { this->_fixedPointValue = n << this->_fractionalBits; }
 
 Fixed::Fixed(const float n) { this->_fixedPointValue = roundf(n * (1 << this->_fractionalBits)); }
+
+Fixed	& Fixed::min(Fixed & a, Fixed & b) { return (a < b ? a : b); }
+
+Fixed	& Fixed::max(Fixed & a, Fixed & b) { return (a < b ? b : a); }
+
+Fixed	const & Fixed::min(Fixed const & a, Fixed const & b) { return (a < b ? a : b); }
+
+Fixed	const & Fixed::max(Fixed const & a, Fixed const & b) { return (a < b ? b : a); }
 
 float	Fixed::toFloat( void ) const
 {
@@ -90,25 +98,25 @@ bool	Fixed::operator!=(const Fixed &nb) const { return (this->_fixedPointValue !
 
 Fixed	Fixed::operator+(const Fixed &nb) 
 {
-	Fixed tmp(this->_fixedPointValue + nb.getRawBits());
+	Fixed tmp(this->toFloat() + nb.toFloat());
 	return (tmp); 
 }
 
 Fixed	Fixed::operator-(const Fixed &nb) 
 {
-	Fixed tmp(this->_fixedPointValue - nb.getRawBits());
+	Fixed tmp(this->toFloat() - nb.toFloat());
 	return (tmp); 
 }
 
 Fixed	Fixed::operator*(const Fixed &nb) 
 {
-	Fixed tmp(this->_fixedPointValue * nb.getRawBits());
+	Fixed tmp(this->toFloat() * nb.toFloat());
 	return (tmp); 
 }
 
 Fixed	Fixed::operator/(const Fixed &nb) 
 {
-	Fixed tmp(this->_fixedPointValue / nb.getRawBits());
+	Fixed tmp(this->toFloat() / nb.toFloat());
 	return (tmp); 
 }
 

@@ -6,11 +6,11 @@
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 12:17:18 by ccambium          #+#    #+#              #
-#    Updated: 2023/01/30 03:53:00 by ccambium         ###   ########.fr        #
+#    Updated: 2023/01/30 04:17:27 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXXFLAGS= -Werror -Wall -Wextra
+CXXFLAGS= -Werror -Wall -Wextra -std=c++98
 CXX=c++
 SRCS=Fixed.cpp\
 	main.cpp
@@ -26,9 +26,9 @@ $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@	
 
 clean:
-	rm $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
