@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:47:47 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/07 13:08:20 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/02 17:03:38 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ClapTrap
 		void	attack( std::string const & target );
 		void	takeDamage( unsigned int amount );
 		void	beRepaired( unsigned int amount );
-	private:
+	protected:
 		std::string	_name;
 		int			_hitPoints;
 		int			_energyPoints;

@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:00:39 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/08 17:45:27 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/02 18:01:02 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ ClapTrap::ClapTrap( std::string name )
 void	ClapTrap::attack( std::string const & target )
 {
 	if (this->_hitPoints <= 0 || this->_energyPoints <= 0) { return ; }
-	std::cout << "ClapTrap " << this->_name
+	std::cout << this->_name
 	<< " attacks " << target 
 	<< ", causing " << this->_attackDamage << " points of damage!" 
 	<< std::endl;
@@ -52,7 +52,7 @@ void	ClapTrap::beRepaired( unsigned int amount )
 {
 	if (this->_hitPoints <= 0 || this->_energyPoints <= 0) { return ; }
 	this->_hitPoints += amount;
-	std::cout << "ClapTrap " << this->_name 
+	std::cout << this->_name 
 	<< " has been repaired for " << amount << " points!" 
 	<< std::endl;
 	this->_energyPoints--;
@@ -63,7 +63,7 @@ void	ClapTrap::takeDamage( unsigned int amount )
 {
 	if (this->_hitPoints <= 0 || this->_energyPoints <= 0) { return ; }
 	this->_hitPoints -= amount;
-	std::cout << "ClapTrap " << this->_name 
+	std::cout << this->_name 
 	<< " has taken " << amount << " points of damage!" 
 	<< std::endl;
 	return ;
@@ -71,6 +71,7 @@ void	ClapTrap::takeDamage( unsigned int amount )
 
 ClapTrap::ClapTrap( ClapTrap const & src )
 {
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 	*this = src;
 	return ;
 }

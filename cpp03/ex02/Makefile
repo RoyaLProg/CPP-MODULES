@@ -6,7 +6,7 @@
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 12:19:23 by ccambium          #+#    #+#              #
-#    Updated: 2023/01/30 03:53:00 by ccambium         ###   ########.fr        #
+#    Updated: 2023/02/02 18:05:33 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CXX=c++
 SRCS=ClapTrap.cpp\
 	FragTrap.cpp\
 	main.cpp\
-	ScavTrap.cpp\
+	ScavTrap.cpp
 NAME=FragTrap
 OBJS=$(SRCS:.cpp=.o)
 
