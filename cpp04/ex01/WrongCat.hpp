@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 18:53:55 by ccambium          #+#    #+#             */
-/*   Updated: 2023/02/06 14:20:30 by ccambium         ###   ########.fr       */
+/*   Created: 2023/02/06 08:54:28 by ccambium          #+#    #+#             */
+/*   Updated: 2023/02/06 08:57:40 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-# include "Animal.hpp"
+# include "WrongAnimal.hpp"
 
-class Dog : public Animal
+class WrongCat : public WrongAnimal
 {
 	public:
-		Dog();
-		Dog(Dog const & src);
-		~Dog();
-		Dog & operator=(const Dog &rhs);
-	private:
-		Brain * Brain;
+		WrongCat();
+		WrongCat(WrongCat const & src);
+		~WrongCat();
 };
 
 #endif

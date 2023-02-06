@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:38:29 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/13 19:10:36 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/06 08:07:16 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,14 @@ Animal & Animal::operator=(Animal const & rhs)
 std::string Animal::getType() const
 {
 	return this->_type;
+}
+
+void	Animal::makeSound() const
+{
+	if (!_type.compare("Cat"))
+		std::cout << "Meow" << std::endl;
+	else if(!_type.compare("Dog"))
+		std::cout << "Woof" << std::endl;
+	else
+		std::cout << "Animal noise" << std::endl;
 }

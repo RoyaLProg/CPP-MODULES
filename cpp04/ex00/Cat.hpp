@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:03:58 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/19 17:09:05 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/06 08:05:22 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CAT_HPP
 
 # include "Animal.hpp"
-# include "Brain.hpp"
 
 class Cat : public Animal
 {
@@ -22,11 +21,6 @@ class Cat : public Animal
 		Cat();
 		Cat(Cat const & src);
 		~Cat();
-
-		Cat & operator=(Cat const & rhs);
-		void makeSound() const;
-	private:
-		Brain *brain;
 };
 
 #endif

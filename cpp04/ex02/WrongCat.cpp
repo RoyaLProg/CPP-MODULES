@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 18:53:55 by ccambium          #+#    #+#             */
-/*   Updated: 2023/02/06 14:20:30 by ccambium         ###   ########.fr       */
+/*   Created: 2023/02/06 08:56:05 by ccambium          #+#    #+#             */
+/*   Updated: 2023/02/06 09:26:58 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "WrongCat.hpp"
 
-# include "Animal.hpp"
-
-class Dog : public Animal
+WrongCat::WrongCat() : WrongAnimal()
 {
-	public:
-		Dog();
-		Dog(Dog const & src);
-		~Dog();
-		Dog & operator=(const Dog &rhs);
-	private:
-		Brain * Brain;
-};
+	std::cout << "WrongCat constructor called" << std::endl;
+	this->_type = "WrongCat";
+}
 
-#endif
+WrongCat::WrongCat(WrongCat const & src) : WrongAnimal(src)
+{
+	std::cout << "WrongCat copy constructor called" << std::endl;
+}
+
+WrongCat::~WrongCat()
+{
+	std::cout << "WrongCat destructor called" << std::endl;
+}

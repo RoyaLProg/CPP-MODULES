@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:34:01 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/19 17:06:43 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/06 14:35:58 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 # define ANIMAL_HPP
 
 # include <iostream>
+# include "Brain.hpp"
 
 class Animal
 {
 	public:
 		Animal();
 		Animal(Animal const & src);
-		virtual ~Animal();
+		~Animal();
 
 		Animal & operator=(Animal const & rhs);
 
 		std::string getType() const;
-		virtual void makeSound() const = 0;
+		void makeSound() const;
 	protected:
 		std::string _type;
 };
