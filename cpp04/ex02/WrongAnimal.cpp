@@ -43,11 +43,6 @@ std::string WrongAnimal::getType() const
 
 void	WrongAnimal::makeSound() const
 {
-	if (!_type.compare("WrongCat"))
-		std::cout << "Woof" << std::endl;
-	else if(!_type.compare("WrongDog"))
-		std::cout << "Meow" << std::endl;
-	else
-		std::cout << "WrongAnimal noise" << std::endl;
+		std::cout << "* WrongAnimal noise *" << std::endl;
 }
 

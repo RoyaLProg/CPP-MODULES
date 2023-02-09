@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 08:56:05 by ccambium          #+#    #+#             */
-/*   Updated: 2023/02/06 09:26:58 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/08 09:14:18 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,9 @@ WrongCat::WrongCat(WrongCat const & src) : WrongAnimal(src)
 WrongCat::~WrongCat()
 {
 	std::cout << "WrongCat destructor called" << std::endl;
+}
+
+void	WrongCat::makeSound() const
+{
+	std::cout << "Meow" << std::endl;
 }

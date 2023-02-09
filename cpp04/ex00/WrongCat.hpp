@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 08:54:28 by ccambium          #+#    #+#             */
-/*   Updated: 2023/02/06 08:57:40 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/08 09:14:01 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class WrongCat : public WrongAnimal
 		WrongCat();
 		WrongCat(WrongCat const & src);
 		~WrongCat();
+
+		void makeSound() const;
 };
 
 #endif
