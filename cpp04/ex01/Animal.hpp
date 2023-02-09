@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:34:01 by ccambium          #+#    #+#             */
-/*   Updated: 2023/02/06 14:35:58 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/09 07:47:39 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Animal
 	public:
 		Animal();
 		Animal(Animal const & src);
-		~Animal();
+		virtual ~Animal();
 
 		Animal & operator=(Animal const & rhs);
 

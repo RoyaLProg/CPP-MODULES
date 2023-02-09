@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:38:29 by ccambium          #+#    #+#             */
-/*   Updated: 2023/02/09 07:44:13 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/09 08:06:27 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,7 @@ Animal & Animal::operator=(Animal const & rhs)
 	return *this;
 }
 
-Animal::Animal()
+Animal::~Animal()
 {
-	std::cout << "Animal constructor called" << std::endl;
-}
-
-Animal::Animal(const Animal & src)
-{
-	std::cout << "Animal copy constructor called" << std::endl;
-	*this = src;
+	std::cout << "Animal destructor called" << std::endl;
 }

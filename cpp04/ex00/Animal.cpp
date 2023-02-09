@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:38:29 by ccambium          #+#    #+#             */
-/*   Updated: 2023/02/09 07:40:54 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/09 07:46:02 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ std::string Animal::getType() const
 
 void	Animal::makeSound() const
 {
-	cout << "* animal noises *" << std::endl;
+	std::cout << "* animal noises *" << std::endl;
 }

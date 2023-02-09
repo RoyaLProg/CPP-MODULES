@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:34:01 by ccambium          #+#    #+#             */
-/*   Updated: 2023/02/09 07:44:41 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/09 07:51:43 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Animal
 		Animal & operator=(Animal const & rhs);
 
 		std::string getType() const;
-		void makeSound() const;
+		virtual void makeSound() const = 0;
 	protected:
 		std::string _type;
 };

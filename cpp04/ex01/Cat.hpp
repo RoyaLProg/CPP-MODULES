@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:03:58 by ccambium          #+#    #+#             */
-/*   Updated: 2023/02/09 07:42:53 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/09 07:48:10 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ class Cat : public Animal
 		Cat(Cat const & src);
 		~Cat();
 		Cat &operator=(const Cat & rhs);
-	private:
-		Brain * Brain;
 };
 
 #endif

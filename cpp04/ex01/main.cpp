@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:13:13 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/19 17:14:59 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/09 08:04:18 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int main()
 	{ 
 		std::cout << "animals[" << i << "]\t: " << animals[i]->getType() << "\t";
 		animals[i]->makeSound();
-		std::cout << std::endl;
 	}
 	for (int i = 0; i < 100; i++) { delete animals[i]; }
 	return 0;

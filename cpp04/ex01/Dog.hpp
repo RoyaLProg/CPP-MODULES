@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:53:55 by ccambium          #+#    #+#             */
-/*   Updated: 2023/02/09 07:43:46 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/09 07:48:19 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ class Dog : public Animal
 		Dog(Dog const & src);
 		~Dog();
 		Dog & operator=(const Dog &rhs);
-	private:
-		Brain * Brain;
 };
 
 #endif

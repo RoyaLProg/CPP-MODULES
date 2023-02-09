@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:11:17 by ccambium          #+#    #+#             */
-/*   Updated: 2023/02/09 07:41:50 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/09 08:02:16 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ Cat & Cat::operator=(Cat const & rhs)
 {
 	std::cout << "Cat assignation operator called" << std::endl;
 	if (this != &rhs)
-	{
 	 	this->_type = rhs._type;
-		this->_brain = rhs._brain;
-	}
 	return *this;
 }
 
