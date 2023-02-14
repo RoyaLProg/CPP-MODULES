@@ -6,19 +6,16 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 08:37:26 by ccambium          #+#    #+#             */
-/*   Updated: 2023/01/02 16:19:47 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:30:51 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include  <cstdlib>
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const &target)
+RobotomyRequestForm::RobotomyRequestForm(std::string const &target) : AForm("RobotomyRequestForm", 45, 72)
 {
-	this->_name = "RobotomyRequestForm";
 	this->_target = target;
-	this->_gradeToExecute = 72;
-	this->_gradeToSign = 45;
 	this->_signed = false;
 }
 

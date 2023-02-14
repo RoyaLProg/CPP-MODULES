@@ -6,22 +6,19 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 08:52:28 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/29 20:16:00 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:32:58 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : AForm("ShrubberyCreationForm", 145, 137)
 {
 	this->_target = target;
-	this->_name = "ShrubberyCreationForm";
-	this->_gradeToSign = 145;
-	this->_gradeToExecute = 137;
 	this->_signed = false;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &src) : AForm(src)
 {
 	*this = src;
 }

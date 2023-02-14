@@ -6,31 +6,25 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 06:52:33 by ccambium          #+#    #+#             */
-/*   Updated: 2023/01/02 15:59:39 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:12:27 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void)
+PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialPardonForm", 25, 5)
 {
-	this->_name = "PresidentialPardonForm";
-	this->_gradeToSign = 25;
-	this->_gradeToExecute = 5;
 	this->_signed = false;
 	this->_target = "<target>";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string const &target)
+PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : AForm("PresidentialPardonForm", 25, 5)
 {
-	this->_name = "PresidentialPardonForm";
-	this->_gradeToSign = 25;
-	this->_gradeToExecute = 5;
 	this->_signed = false;
 	this->_target = target;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src) : AForm(src)
 {
 	*this = src;
 }

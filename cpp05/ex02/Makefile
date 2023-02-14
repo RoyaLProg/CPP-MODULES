@@ -6,7 +6,7 @@
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 12:28:32 by ccambium          #+#    #+#              #
-#    Updated: 2023/01/30 03:53:00 by ccambium         ###   ########.fr        #
+#    Updated: 2023/02/14 18:00:02 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CXX=c++
 SRCS=AForm.cpp\
 	Bureaucrat.cpp\
 	main.cpp\
-	PresidencialPardonForm.cpp\
+	PresidentialPardonForm.cpp\
 	RobotomyRequestForm.cpp\
 	ShrubberyCreationForm.cpp	
 NAME=Bureaucrat
@@ -30,9 +30,9 @@ $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@	
 
 clean:
-	rm $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re: fclean all

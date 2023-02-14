@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 12:05:49 by ccambium          #+#    #+#             */
-/*   Updated: 2022/12/29 08:26:43 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:05:34 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,18 @@ const char* AForm::GradeTooLowException::what() const throw()
 const char* AForm::FormNotSignedException::what() const throw()
 {
 	return ("Form not signed");
+}
+
+AForm::AForm(std::string name, int gradeToSign, int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+{
+	if (gradeToSign < 1 || gradeToExecute < 1)
+		throw AForm::GradeTooHighException();
+	if (gradeToSign > 150 || gradeToExecute > 150)
+		throw AForm::GradeTooLowException();
+	this->_signed = false;
+}
+
+AForm::AForm(AForm const & src) : _name(src.getName()), _gradeToSign(src.getGradeToSign()), _gradeToExecute(src.getGradeToExecute())
+{
+	this->_signed = src.getSigned();
 }
