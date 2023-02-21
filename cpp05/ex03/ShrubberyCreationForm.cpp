@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+	/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 08:52:28 by ccambium          #+#    #+#             */
-/*   Updated: 2023/02/14 18:32:58 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/17 10:29:09 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,12 @@ void	ShrubberyCreationForm::execute(const Bureaucrat & executor) const
 		throw AForm::GradeTooLowException();
 	
 	out.open(fileName.c_str(), std::ios::out | std::ios::app);
-	
+	if (out.fail())
+	{
+		std::cout << "failled to open " << fileName << std::endl;
+		return ;
+	}
+
 	out << "          &&& &&  & &&" << std::endl;
 	out << "      && &\\/&\\|& ()|/ @, &&" << std::endl;
 	out << "      &\\/(/&/&||/& /_/)_&/_&" << std::endl;
