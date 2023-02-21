@@ -6,14 +6,13 @@
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 12:34:49 by ccambium          #+#    #+#              #
-#    Updated: 2023/02/15 14:15:04 by ccambium         ###   ########.fr        #
+#    Updated: 2023/02/21 18:23:09 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXXFLAGS= -Werror -Wall -Wextra
 CXX=c++
-SRCS=iter.cpp\
-	main.cpp
+SRCS=main.cpp
 NAME=iter
 OBJS=$(SRCS:.cpp=.o)
 
