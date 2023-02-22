@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 03:55:40 by ccambium          #+#    #+#             */
-/*   Updated: 2023/02/22 19:00:01 by ccambium         ###   ########.fr       */
+/*   Created: 2023/02/22 19:10:01 by ccambium          #+#    #+#             */
+/*   Updated: 2023/02/22 19:18:51 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Serializer.hpp"
 
-int main(int ac, char **av)
+uintptr_t Serializer::serialize(Data* ptr)
 {
-	if (ac != 2)
-	{
-		std::cout << "Usage: ./convert [string]" << std::endl;
-		return (1);
-	}
-	std::string	arg = std::string(av[1]);
-	ScalarConverter::convert(arg);
-	return (0);
+	return reinterpret_cast<uintptr_t>(ptr);
+}
+
+Data* Serializer::deserialize(uintptr_t raw)
+{
+	return reinterpret_cast<Data*>(raw);
+}
+
+Serializer::~Serializer()
+{
 }

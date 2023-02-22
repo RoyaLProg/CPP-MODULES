@@ -6,13 +6,14 @@
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 12:31:51 by ccambium          #+#    #+#              #
-#    Updated: 2023/02/15 13:03:31 by ccambium         ###   ########.fr        #
+#    Updated: 2023/02/22 19:00:23 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXXFLAGS= -Werror -Wall -Wextra
 CXX=c++
-SRCS=main.cpp
+SRCS=main.cpp\
+	ScalarConverter.cpp
 NAME=Cast
 OBJS=$(SRCS:.cpp=.o)
 
