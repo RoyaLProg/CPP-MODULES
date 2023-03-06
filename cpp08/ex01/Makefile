@@ -6,11 +6,11 @@
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 12:38:57 by ccambium          #+#    #+#              #
-#    Updated: 2023/02/15 14:15:24 by ccambium         ###   ########.fr        #
+#    Updated: 2023/03/06 15:09:34 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXXFLAGS= -Werror -Wall -Wextra
+CXXFLAGS= -Werror -Wall -Wextra --std=c++98
 CXX=c++
 SRCS=main.cpp\
 	Span.cpp
