@@ -6,20 +6,28 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:16:48 by ccambium          #+#    #+#             */
-/*   Updated: 2023/01/11 12:36:06 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/02/24 23:25:59 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <exception>
 
 template <typename T>
-Array<T>::Array(void) : _array(new T[0]), _size(0)
+Array<T>::Array(void)
 {
+	_array = new T[0];
+	_size = 0;
 }
 
 template <typename T>
-Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n)
+Array<T>::Array(unsigned int n) : _size(n)
 {
+	try{ _array = new T[n]; }
+	catch (std::exception & e)
+	{
+		delete [] this->_array;
+		throw e;
+	}
 }
 
 template <typename T>
