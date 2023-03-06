@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 04:45:28 by ccambium          #+#    #+#             */
-/*   Updated: 2023/01/10 05:03:10 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:13:36 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void Span::addNumber( int n )
 		throw std::length_error( "Span is full" );
 }
 
-int Span::shortestSpan()
+size_t	Span::shortestSpan()
 {
 	if ( _v.size() < 2 )
 		throw std::length_error("Span is too small");
 	std::sort( _v.begin(), _v.end() );
 	int min = _v[1] - _v[0];
-	for ( int i = 1; i < _v.size() - 1; i++ )
+	for ( size_t i = 1; i < _v.size() - 1; i++ )
 	{
 		if ( _v[i + 1] - _v[i] < min )
 			min = _v[i + 1] - _v[i];
@@ -38,7 +38,7 @@ int Span::shortestSpan()
 	return min;
 }
 
-int	Span::longestSpan()
+size_t	Span::longestSpan()
 {
 	if ( _v.size() < 2 )
 		throw std::length_error("Span is too small");
