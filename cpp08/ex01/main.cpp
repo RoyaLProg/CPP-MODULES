@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 04:55:48 by ccambium          #+#    #+#             */
-/*   Updated: 2023/03/06 15:21:19 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/03/07 20:24:42 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ int main()
 	catch (std::exception &e) { std::cout << e.what() << std::endl;}
 	try{ std::cout << sp2.longestSpan() << std::endl; }
 	catch (std::exception &e) { std::cout << e.what() << std::endl;}
+
+	Span	sp3 = Span(10000);
+	std::vector<int> v;
+	for (int i = 0; i < 10000; i++)
+		v.push_back(i);
+	sp3.addNumber(v.begin(), v.end());
+	std::cout << sp3.shortestSpan() << std::endl;
+	std::cout << sp3.longestSpan() << std::endl;
 
 	return (0);
 }

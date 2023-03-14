@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 04:45:28 by ccambium          #+#    #+#             */
-/*   Updated: 2023/03/06 15:13:36 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/03/07 20:24:10 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,3 +63,9 @@ Span &Span::operator=( Span const & rhs )
 	return *this;
 }
 
+void Span::addNumber(std::vector<int>::iterator it, std::vector<int>::iterator ite)
+{
+	if ( _v.size() + std::distance( it, ite ) > _n )
+		throw std::length_error( "Span is full" );
+	_v.insert( _v.end(), it, ite );
+}

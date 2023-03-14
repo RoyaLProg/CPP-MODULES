@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 04:42:55 by ccambium          #+#    #+#             */
-/*   Updated: 2023/03/06 15:12:42 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/03/07 20:14:27 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Span
 		~Span();
 		Span & operator=(Span const & rhs);
 		void addNumber(int n);
+		void addNumber(std::vector<int>::iterator it, std::vector<int>::iterator ite);
 		size_t shortestSpan();
 		size_t longestSpan();
 };

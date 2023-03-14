@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 07:34:09 by ccambium          #+#    #+#             */
-/*   Updated: 2023/01/11 07:46:24 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/03/07 20:27:10 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ int main()
 		++it;
 	}
 	std::stack<int> s(mstack);
-
+	
+	MutantStack<int> mstack2(mstack);
+	std::cout << "mstack is empty ?" << mstack.empty() << std::endl;
+	std::cout << "mstack == msack2 ?" << (mstack == mstack2) << std::endl;
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 04:22:11 by ccambium          #+#    #+#             */
-/*   Updated: 2023/01/10 04:30:23 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:05:05 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(void)
 	l.push_back(2);
 	l.push_back(3);
 	
-	std::cout << easyfind(v, 1) << std::endl;
+	std::cout << easyfind(v, 3) << std::endl;
 	try {std::cout << easyfind(v, 4) << std::endl;}
 	catch (std::exception &e) {std::cout << "Not found" << std::endl;}
 	std::cout << easyfind(l, 2) << std::endl;
