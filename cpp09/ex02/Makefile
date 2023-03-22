@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/15 04:19:48 by ccambium          #+#    #+#              #
-#    Updated: 2023/03/17 05:06:18 by ccambium         ###   ########.fr        #
+#    Created: 2023/03/17 05:01:04 by ccambium          #+#    #+#              #
+#    Updated: 2023/03/17 05:06:11 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXXFLAGS= -Werror -Wall -Wextra -std=c++98
 CXX=c++
 SRCS=main.cpp\
-	BitcoinExchange.cpp
-NAME=btc
+	PMergeMe.cpp
+NAME=PMergeMe
 OBJS=$(SRCS:.cpp=.o)
 
 all: $(NAME)

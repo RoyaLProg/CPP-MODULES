@@ -6,7 +6,7 @@
 #    By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/15 06:17:40 by ccambium          #+#    #+#              #
-#    Updated: 2023/03/15 06:38:41 by ccambium         ###   ########.fr        #
+#    Updated: 2023/03/17 05:06:22 by ccambium         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,3 +32,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re $(NAME)
