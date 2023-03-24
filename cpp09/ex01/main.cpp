@@ -20,6 +20,7 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	RPN::load(av[1]);
-	RPN::resolve();
+	try { RPN::resolve(); }
+    catch (std::exception & e) { std::cout << e.what();}
 }
 

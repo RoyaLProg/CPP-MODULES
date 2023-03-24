@@ -25,7 +25,11 @@ void	RPN::load(std::string input)
 			continue ;
 		_operation.push_back(input[i]);
 	}
-	verification();
+	if (!verification())
+    {
+        _loaded = false;
+        return ;
+    }
 	_loaded = true;
 }
 
@@ -33,25 +37,22 @@ bool	RPN::verification()
 {
 	size_t	i = 2;
 	bool	f = true;
+
 	if (_operation.size() == 1)
 		return (true);
 	if (_operation.size() == 2 || !std::isdigit(_operation[0]) || !std::isdigit(_operation[1]))
 		f = false;
 	for (; i < _operation.size() && f; i++)
 	{
-		if (i % 2 == 0)
-		{
-			if (_operation[i] != '*'
-			&& _operation[i] != '/'
-			&& _operation[i] != '+'
-			&& _operation[i] != '-')
-				f = false;
-		}
-		else
-		{
-			if (!std::isdigit(_operation[i]))
-				f = false;
-		}
+		if (_operation[i] != '*'
+		&& _operation[i] != '/'
+		&& _operation[i] != '+'
+		&& _operation[i] != '-'
+		&& !std::isdigit(_operation[i]))
+        {
+			f = false;
+            break ;
+        }
 	}
 	if (_operation[i - 1] != '*'
 	&& _operation[i - 1] != '/'
@@ -61,13 +62,13 @@ bool	RPN::verification()
 	if (f == false)
 	{
 		std::cout << "ERROR : incorect formating" << std::endl;
-		return f;
 		_failed = true;
+		return f;
 	}
 	return (true);
 }
 
-static size_t	makeOperation(size_t n1, size_t n2, char op)
+static double	makeOperation(double n1, double n2, char op)
 {
 	switch (op)
 	{
@@ -82,16 +83,61 @@ static size_t	makeOperation(size_t n1, size_t n2, char op)
 	}
 }
 
+void    decide(double * n1, double * n2, double * reminder, double * result, char c)
+{
+    if (isdigit(c))
+    {
+        if (*n1 == -1)
+            *n1 = c - '0';
+        else if(*n2 == -1)
+            *n2 = c - '0';
+        else
+            throw std::invalid_argument("ERROR all buffers are full\n");
+    }
+    else
+    {
+
+        if (*n1 >= 0 && *n2 >= 0 && *reminder == -1)
+        {
+            *reminder = makeOperation(*n1, *n2, c);
+            *n1 = -1;
+            *n2 = -1;
+        }
+        else if (*n1 >= 0 && *n2 >= 0 && *reminder != -1)
+        {
+            *result += *reminder;
+            *reminder = makeOperation(*n1, *n2, c);
+            *n1 = -1;
+            *n2 = -1;
+        }
+        else if (*n1 >= 0 && *n2 == -1 && *reminder != -1)
+        {
+            *reminder = makeOperation(*reminder, *n1, c);
+            *n1 = -1;
+            *n2 = -1;
+        }
+        else if (*n1 == -1 && *n2 == -1 && *reminder >= 0)
+        {
+            *result = makeOperation(*result, *reminder, c);
+            *reminder = -1;
+        }
+        else
+            throw std::invalid_argument("ERROR: nothing to make operation on !\n");
+    }
+}
+
 void	RPN::resolve()
 {
-	size_t	n1;
-	size_t	n2;
-	size_t	i;
-	char	op;
+	double	n1, n2, reminder, result;
+
+    n1 = -1;
+    n2 = -1;
+    reminder = -1;
+    result = 0;
 
 	if (_failed)
 	{
-		std::cout << "ERROR: loading have failed !" << std::endl;
+		std::cout << "ERROR: loading had failed !" << std::endl;
 		return ; 
 	}
 	if (!_loaded)
@@ -99,17 +145,16 @@ void	RPN::resolve()
 		std::cout << "ERROR: not loaded !" << std::endl;
 		return ; 
 	}
-
-	n1 = _operation[0] - '0';
-	n2 = _operation[1] - '0';
-	op = _operation[2];
-	i = 3;
-	for (; i < _operation.size(); i += 2)
+    if (_operation.size() == 1)
+    {
+        std::cout << _operation[0] - '0' << "\n";
+        return ;
+    }
+	for (size_t i = 0; i < _operation.size(); i ++)
 	{
-		n1 = makeOperation(n1, n2, op);
-		n2 = _operation[i] - '0';
-		op = _operation[i + 1];
+        decide(&n1, &n2, &reminder, &result, _operation[i]);
 	}
-	n1 = makeOperation(n1, n2, op);
-	std::cout << n1 << std::endl;
+    if (reminder != -1)
+        result += reminder;
+    std::cout << std::fixed << result << std::endl;
 }
