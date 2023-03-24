@@ -18,7 +18,9 @@ int	main(int ac, char **av){
 		std::cout << "usage : ./btc [/path/to/inpute_file]" << std::endl;
 		return 0;
 	}
-	BitcoinExchange::read_input(av[1]);
+    try{ BitcoinExchange::read_input(av[1]); }
+    catch ( std::invalid_argument const& e) { std::cout << e.what(); return (1);}
+
 	return (0);
 }
 
