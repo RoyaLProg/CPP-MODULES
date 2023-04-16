@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 23:35:08 by ccambium          #+#    #+#             */
-/*   Updated: 2023/03/15 05:41:45 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/04/16 05:22:59 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,8 @@ bool	BitcoinExchange::verification(std::string line)
 	std::string	s;
 	
     s = line.substr(0, line.find('|') - 1);
+	if (line == "date | value")
+		return false;
     if (!check_date(s))
         return (false);
     if (!checkFormat(line))
@@ -135,7 +137,7 @@ bool	BitcoinExchange::verification(std::string line)
 	return (true);
 }
 
-static void make_new_time(struct tm *tm)
+static int make_new_time(struct tm *tm)
 {
     if (tm->tm_mday > 1)
         tm->tm_mday -= 1;
@@ -148,11 +150,12 @@ static void make_new_time(struct tm *tm)
             if (tm->tm_year > 0)
                 tm->tm_year -= 1;
             else
-                throw std::invalid_argument("Some you have input an invalid date !");
+                return (1);
             tm->tm_mon = 11;
         }
         tm->tm_mday = 31;
     }
+	return (0);
 }
 
 static double   find_closest_date(std::string date, std::map<std::string, double> data)
@@ -165,7 +168,11 @@ static double   find_closest_date(std::string date, std::map<std::string, double
         return (0);
     while (1)
     {
-        make_new_time(&tm);
+        if (make_new_time(&tm))
+		{
+			std::cout << "ERROR : date not found ( maybe to early ?) : " << date << "\n";
+			return (-1);			
+		}
         strftime(s, 11, "%Y-%m-%d", &tm);
         try {mult = data.at(std::string(s)); break;}
         catch (std::exception & e) {continue ;}
@@ -181,6 +188,8 @@ void	BitcoinExchange::print_line(std::string line)
 
 	try {mult = BitcoinExchange::_data.at(line.substr(0, line.find('|') - 1));}
 	catch (std::exception & e) {mult = find_closest_date(line.substr(0, line.find('|') - 1), BitcoinExchange::_data);}
+	if (mult == -1)
+		return ;
     value = std::atof(
 		line.substr(line.find('|') + 2, 
 		line.size()).c_str()
