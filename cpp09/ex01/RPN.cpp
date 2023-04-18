@@ -6,11 +6,13 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 06:19:00 by ccambium          #+#    #+#             */
-/*   Updated: 2023/03/15 07:37:36 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/04/18 14:11:13 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
+#include <cstdlib>
+#include <iostream>
 
 std::deque<char>	RPN::_operation;
 bool				RPN::_failed = false;
@@ -61,80 +63,69 @@ bool	RPN::verification()
 		f = false;
 	if (f == false)
 	{
-		std::cout << "ERROR : incorect formating" << std::endl;
+		std::cout << "ERROR : incorrect formating" << std::endl;
 		_failed = true;
 		return f;
 	}
 	return (true);
 }
 
-static double	makeOperation(double n1, double n2, char op)
-{
-	switch (op)
-	{
-	case '*':
-		return (n1 * n2);
-	case '+':
-		return (n1 + n2);
-	case '/':
-		return (n1 / n2);
-	default:
-		return (n1 - n2);
-	}
+std::ostream &operator<<(std::ostream &o, std::deque<double> d) {
+	for (std::deque<double>::iterator it = d.begin(); it < d.end(); it++)
+		o << *it << " ";
+	o << "\n";
+	return o;
 }
 
-void    decide(double * n1, double * n2, double * reminder, double * result, char c)
+static void	makeOperation(std::deque<double> *stack, char op)
+{
+	double result = 0;
+	std::cout << *stack;
+	double n2 = stack->front();
+	stack->pop_front();
+	double n1 = stack->front();
+	stack->pop_front();
+	std::cout << "operation : " << op << "\n";
+	switch (op)
+	{
+		case '*':
+			result = n1 * n2;
+			break ;
+		case '+':
+			result = n1 + n2;
+			break ;
+		case '/':
+			result = n1 / n2;
+			break ;
+		default:
+			result = n1 - n2;
+			break ;
+	}
+	std::cout << "result : " << result << "\n";
+	stack->push_front(result);
+}
+
+int    decide(std::deque<double> *stack, char c)
 {
     if (isdigit(c))
-    {
-        if (*n1 == -1)
-            *n1 = c - '0';
-        else if(*n2 == -1)
-            *n2 = c - '0';
-        else
-            throw std::invalid_argument("ERROR all buffers are full\n");
-    }
+	{
+		char number[2];
+		number[0] = c;
+		number[1] = '\0';
+        stack->push_front(std::atof(&number[0]));		
+	}
     else
-    {
-
-        if (*n1 >= 0 && *n2 >= 0 && *reminder == -1)
-        {
-            *reminder = makeOperation(*n1, *n2, c);
-            *n1 = -1;
-            *n2 = -1;
-        }
-        else if (*n1 >= 0 && *n2 >= 0 && *reminder != -1)
-        {
-            *result += *reminder;
-            *reminder = makeOperation(*n1, *n2, c);
-            *n1 = -1;
-            *n2 = -1;
-        }
-        else if (*n1 >= 0 && *n2 == -1 && *reminder != -1)
-        {
-            *reminder = makeOperation(*reminder, *n1, c);
-            *n1 = -1;
-            *n2 = -1;
-        }
-        else if (*n1 == -1 && *n2 == -1 && *reminder >= 0)
-        {
-            *result = makeOperation(*result, *reminder, c);
-            *reminder = -1;
-        }
-        else
-            throw std::invalid_argument("ERROR: nothing to make operation on !\n");
-    }
+	{
+		if (stack->size() < 2)
+			return (1);
+		makeOperation(stack, c);
+	}
+	return (0);
 }
 
 void	RPN::resolve()
 {
-	double	n1, n2, reminder, result;
-
-    n1 = -1;
-    n2 = -1;
-    reminder = -1;
-    result = 0;
-
+	std::deque<double> stack;
 	if (_failed)
 	{
 		std::cout << "ERROR: loading had failed !" << std::endl;
@@ -145,16 +136,27 @@ void	RPN::resolve()
 		std::cout << "ERROR: not loaded !" << std::endl;
 		return ; 
 	}
-    if (_operation.size() == 1)
+    if (_operation.size() == 1 && isdigit(_operation[0]))
     {
         std::cout << _operation[0] - '0' << "\n";
         return ;
     }
+	else if (_operation.size() == 1){
+		std::cout << "ERROR: operation only containing an operation ...";
+		return;
+	}
 	for (size_t i = 0; i < _operation.size(); i ++)
 	{
-        decide(&n1, &n2, &reminder, &result, _operation[i]);
+		if (decide(&stack, _operation[i]))
+		{
+			std::cout << "ERROR: something was not right !" << std::endl;
+			return ;
+		}
 	}
-    if (reminder != -1)
-        result += reminder;
-    std::cout << std::fixed << result << std::endl;
+	if (stack.size() != 1)
+	{
+		std::cout << "ERROR: missing an operation ...\n";
+		return ;
+	}
+    std::cout << std::fixed << stack.front() << std::endl;
 }

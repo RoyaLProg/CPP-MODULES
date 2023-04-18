@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 23:35:08 by ccambium          #+#    #+#             */
-/*   Updated: 2023/04/16 05:22:59 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/04/18 13:17:55 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,11 +127,6 @@ bool	BitcoinExchange::verification(std::string line)
 	if (!isNumber(s))
 	{
 		std::cout << "ERROR : \"" << line << "\" invalid value" << std::endl; 
-		return (false);
-	}
-	if (s.size() > 4)
-	{
-		std::cout << "ERROR : \"" << line << "\" value too high" << std::endl; 
 		return (false);
 	}
 	return (true);
