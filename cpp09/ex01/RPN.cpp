@@ -6,7 +6,7 @@
 /*   By: ccambium <ccambium@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 06:19:00 by ccambium          #+#    #+#             */
-/*   Updated: 2023/04/18 14:11:13 by ccambium         ###   ########.fr       */
+/*   Updated: 2023/04/24 12:05:24 by ccambium         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,22 +70,20 @@ bool	RPN::verification()
 	return (true);
 }
 
-std::ostream &operator<<(std::ostream &o, std::deque<double> d) {
-	for (std::deque<double>::iterator it = d.begin(); it < d.end(); it++)
-		o << *it << " ";
-	o << "\n";
-	return o;
-}
+// std::ostream &operator<<(std::ostream &o, std::deque<double> d) {
+// 	for (std::deque<double>::iterator it = d.begin(); it < d.end(); it++)
+// 		o << *it << " ";
+// 	o << "\n";
+// 	return o;
+// }
 
 static void	makeOperation(std::deque<double> *stack, char op)
 {
 	double result = 0;
-	std::cout << *stack;
 	double n2 = stack->front();
 	stack->pop_front();
 	double n1 = stack->front();
 	stack->pop_front();
-	std::cout << "operation : " << op << "\n";
 	switch (op)
 	{
 		case '*':
@@ -101,7 +99,7 @@ static void	makeOperation(std::deque<double> *stack, char op)
 			result = n1 - n2;
 			break ;
 	}
-	std::cout << "result : " << result << "\n";
+	// std::cout << "result : " << result << "\n";
 	stack->push_front(result);
 }
 
